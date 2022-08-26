@@ -1,1 +1,9 @@
-change file content
+~commit 
+git commit -m "commit note"
+~ switch branch
+git checkout main/'branchname'
+~ check log
+git log
+~ gắn tag
+git tag 'tag' '10 ký tự đầu commit id'
+command lines don't work 
