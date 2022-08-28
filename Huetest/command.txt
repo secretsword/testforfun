@@ -6,5 +6,6 @@ git checkout main/'branchname'
 git log
 ~ gắn tag
 git tag 'tag' '10 ký tự đầu commit id'
-command lines don't work:
+ctrl+/ command lines don't work:
+
 git add <file name>
