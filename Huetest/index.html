@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>A foodaholic</title>
+        <title>
+            A foodaholic
+        </title>
         <nav>
             <a href="/home">Home</a>
             <a href="/work">Work</a>
@@ -12,11 +14,17 @@
     <body>
        <!-- Home -->
        <h1>Hue Pham</h1>
-       <p><em>A person who falls in love with food</em></p>
+       
+       <p>
+            <em>
+                A person who falls in love with food
+            </em>
+        </p>
        <img width=400 height=500 src="images/IMG_2868.jpg">
        <a href="/work">See my work</a>
        <!-- Work -->
        <h1>Work</h1>
+
        <p>I wish food was falling from the sky.</p>
        <img width=400 height=500 src="images/yoona1.jpg">
        <img width=400 height=500 src="images/yoona4.jpg">
@@ -31,26 +39,47 @@
        <img width=400 height=500 src="images/yoona13.jpg">
        <img width=400 height=500 src="images/yoona17.jpg">
        <!-- Contact -->
+
        <h1>Contact me</h1>
+
        <form>
-        <label for="name">Name:</label><br>
-        <input type="text" id="name"><br><br>
-        <label for="email">Email:<label><br>
-        <input type="text" id="email"><br><br>
-        <label>Favorite social media:</label><br>
-        <input type="radio" id="fb" name="fav_social" value="Facebook">
-        <label for="fb">Facebook</label>
-        <input type="radio" id="yt" name="fav_social" value="Youtube">
-        <label for="yt">Youtube</label>
-        <input type="radio" id="ig" name="fav_social" value="Instagram">
-        <label for="ig">Instagram</label><br><br>
-        <label for="message"> Message:</label><br>
-        <textarea id="message" name="message" rows="5" cols="35"></textarea><br><br>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <br>
+        </div>
+        <div>
+            <label for="email">Email:<label>
+            <input type="text" id="email">
+            <br>
+        </div>
+        <div>
+            <label>Favorite social media:</label><br>
+            <div>
+                <input type="radio" id="fb" name="fav_social" value="Facebook">
+                <label for="fb">Facebook</label>
+            </div>
+            <div>
+                <input type="radio" id="yt" name="fav_social" value="Youtube">
+                <label for="yt">Youtube</label>
+            </div>
+            <div>
+                <input type="radio" id="ig" name="fav_social" value="Instagram">    
+                <label for="ig">Instagram</label><br><br>
+            </div>
+        </div>
+        <div>
+            <label for="message"> Message:</label><br>
+            <textarea id="message" name="message" rows="5" cols="35"></textarea><br><br>
+        </div>
         <button type="button" onclick="alert('Successful!')">Submit</button>
        </form>
+
     </body>
     <footer>
-        <p><strong>Hue Pham</strong><br>
+        <p>
+            <strong>Hue Pham</strong>
+            <br>
             <a href="mailto:phamthuhueneu@gmail.com">phamthuhueneu@gmail.com</a>
         </p>
         &copy;2022
