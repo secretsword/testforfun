@@ -1,0 +1,53 @@
+* {
+    font-family: Helvetica, sans-serif;
+    /* font-size: ; */
+    /* 48px, 36px, 24px, 16px; */
+    /* font-style: ; */
+    /* font-weight: ; */
+    /* color: #000000; */
+    /* text-align: justify; */
+}
+
+.home-section {
+    border: 1px solid red;
+    border-radius: 4px;
+    width: 100%;
+    padding: 40px 40px;
+    margin-bottom: 20px;
+    position: relative;
+    /* top: 10px; */
+}
+
+.home-section h1, .home-section p, .home-section img, .home-section a {
+    display: block;
+}
+
+.home-section h1 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+li {
+    display: inline;
+}
+.submit-btn {
+    background: blue;
+    color: white;
+}
+
+.submit-btn:hover {
+    background: red;
+    cursor: pointer;
+}
+
+.header {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
