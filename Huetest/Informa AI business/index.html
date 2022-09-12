@@ -6,10 +6,14 @@
         AI Article page
     </title>
     <!-- CSS only -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="./main.css">
     <script src="https://kit.fontawesome.com/004ba02ff6.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@400;500;600;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
@@ -23,17 +27,16 @@
 
             <!-- Social header bar  -->
             <div class="social-header">
-                <img class="ai-logo" src="images/AI_Business_Logo_withCog_center.svg"
-                    alt="AI Business logo">
+                <img class="ai-logo" src="images/AI_Business_Logo_withCog_center.svg" alt="AI Business logo">
                 <div class="social">
-                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
-                <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
-                <button class="btn">
-                    <i class="fa-regular fa-envelope"></i> Subscribe
-                </button>
-                <a href="/account"><i class="fa-regular fa-user"></i></a>
+                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                    <button class="btn">
+                        <i class="fa-regular fa-envelope"></i> Subscribe
+                    </button>
+                    <a href="/account"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
 
@@ -72,45 +75,47 @@
     </div>
 
     <!-- Start Main content  -->
-    <div class="container">
+    <div class="main-content">
         <div class="title">
-            <h1>
-                IoT cybersecurity, Amazon backs ‘mindful metaverse’
-            </h1>
+            IoT cybersecurity, Amazon backs ‘mindful metaverse’
         </div>
         <div class="sub-title">
             Cras justo odio, dapibus ac facilisis in, egestas eget quamsem malesuada magna mollis euismod.
         </div>
 
         <!-- Author -->
-        <div class="author">
-            <img width=48px height=48px src="images/yoona1.jpg" alt="author1">
-            <img width=48px height=48px src="images/yoona14.jpg" alt="author2">
-            <div class="author-name">
-                Kevin Van Trump, Natasha Kohl
-            </div>
-            <div class="date">
-                September 8, 2022
+        <div class="author col-6">
+            <img class="author-ava" src="images/yoona1.jpg" alt="author1">
+            <img class="author-ava" src="images/yoona14.jpg" alt="author2">
+            <div class="author-info m-auto">
+                <div class="author-name">
+                    Kevin Van Trump, Natasha Kohl
+                </div>
+                <div class="date">
+                    September 8, 2022
+                </div>
             </div>
         </div>
         <!-- Time read  -->
         <div class="time-read">
-            <i width=14px height=14px class="fa-solid fa-clock"></i>
+            <i class="fa-solid fa-clock"></i>
             <div>
                 6 min read
             </div>
         </div>
 
         <!-- Image -->
-        <div class="image">
+        <div class="content-image">
             <img src="https://www.kratikal.com/blog/wp-content/uploads/2020/03/3-major-challenges-facing-future-iot.jpg"
                 alt="Internet of things">
             <div class="caption">
-                Nullam quis risus eget urna mollis ornare vel eu leo.
-            </div>
-            <div class="source-image">
-                GETTY IMAGES
-            </div>
+                <div class="image-des">
+                    Nullam quis risus eget urna mollis ornare vel eu leo.
+                </div>
+                <div class="source-image">
+                    getty images
+                </div>                
+            </div>            
         </div>
 
         <!-- Social share  -->
@@ -130,7 +135,7 @@
         </div>
 
         <!-- Summary  -->
-        <div class="summary">
+        <div class="summary col-8">
             <h3>
                 Key Points
             </h3>
@@ -367,7 +372,7 @@
         </div>
 
         <!-- right side  -->
-        <div class="container">
+        <div class="container col-2">
             <img src="https://i.pinimg.com/550x/35/0e/dc/350edc5c2c0521fc1f0da16e0a97af84.jpg" alt="ads">
             <h2 class="recommended">
                 Recommended
