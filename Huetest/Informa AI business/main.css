@@ -240,10 +240,11 @@ i {
     font-family: 'Rubik', sans-serif;
     font-size: 1.6rem;
     line-height: 2.8rem;
+    display: inline;
 }
 
 .caption>.source-image {
-    display: inline;
+    display: inline-block;
     font-family: 'Rubik', sans-serif;
     font-size: 1.2rem;
     line-height: 2.8rem;
