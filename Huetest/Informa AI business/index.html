@@ -7,32 +7,31 @@
     </title>
     <!-- CSS only -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="./bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/004ba02ff6.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@400;500;600;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&family=Rubik:wght@400;500;600;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
-    <Header>
-        <!-- Navigation -->
-        <nav class="nav-bar">
-            <!-- Header logo -->
-            <div class="header-logo">
-                <img class="align-middle" src="images/iribbon-logo.png">
-            </div>
+<header>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <!-- Header logo -->
+        <div class="header-logo">
+            <img class="align-middle" src="images/iribbon-logo.png">
+        </div>
 
-            <!-- Social header bar  -->
-            <div class="social-header">
-                <img class="ai-logo col-lg-2 col-sm-6" src="images/AI_Business_Logo_withCog_center.svg"
-                    alt="AI Business logo">
+        <div class="social-header">
+            <div class="container w-100 d-flex justify-content-between">
+                <div class="col-lg-1">
+                    <img class="ai-logo" src="images/AI_Business_Logo_withCog_center.svg" alt="AI Business logo">
+                </div>
                 <div class="social-header-right">
                     <div class="social">
                         <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
@@ -46,9 +45,11 @@
                     <a href="/account"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
+        </div>
 
-            <!-- Main navigation  -->
-            <div class="main-nav">
+        <!-- Main navigation  -->
+        <div class="w-100 main-nav">
+            <div class="d-flex justify-content-between align-items-center container">
                 <i class="fa-solid fa-bars"></i>
                 <div class="main-nav-link">
                     <a href="/analysis">Analysis</a>
@@ -60,15 +61,22 @@
                 </div>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-        </nav>
-
-        <!-- Header banner  -->
-        <div class="banner col-lg-12">
-            <img src="https://www.cityscape-intelligence.com/sites/cet.com/files/IoT_3.jpg" alt="Internet of things">
         </div>
-    </Header>
+
+        <div class="container">
+            <!-- Social header bar  -->
+            <!-- Header banner  -->
+            <div class="banner col-lg-12">
+                <img src="https://www.cityscape-intelligence.com/sites/cet.com/files/IoT_3.jpg"
+                     alt="Internet of things">
+            </div>
+        </div>
+    </nav>
+
+</header>
 
 
+<div class="container">
     <!-- Categories  -->
     <div class="categories">
         <a class="category-item" href="#">IT & Data Center</a>
@@ -99,7 +107,7 @@
                             <div class="date">
                                 September 8, 2022
                             </div>
-                    </div>
+                        </div>
                     </div>
                     <div class="time">
                         <i class="fa-solid fa-clock"></i>
@@ -112,8 +120,8 @@
                 <!-- Image -->
                 <div class="content-image">
                     <img class=""
-                        src="https://toolsense.io/wp-content/uploads/2021/11/IoT-Internet-of-Things-1-1024x409.jpeg"
-                        alt="Internet of things">
+                         src="https://toolsense.io/wp-content/uploads/2021/11/IoT-Internet-of-Things-1-1024x409.jpeg"
+                         alt="Internet of things">
                     <div class="caption">
                         <div class="image-des">
                             Nullam quis risus eget urna mollis ornare vel eu leo.
@@ -126,10 +134,12 @@
 
                 <!-- Social share  -->
                 <div class="social-share">
-                    <a class="social-item" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="social-item" href="https://www.instagram.com/"><i
+                            class="fa-brands fa-instagram"></i></a>
                     <a class="social-item" href="https://www.facebook.com/"><i
                             class="fa-brands fa-square-facebook"></i></a>
-                    <a class="social-item" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="social-item" href="https://www.linkedin.com/"><i
+                            class="fa-brands fa-linkedin"></i></a>
                     <a class="social-item" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                 </div>
 
@@ -173,20 +183,23 @@
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante
                         venenatis
                         dapibus
-                        posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo
+                        posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi
+                        leo
                         risus,
                         porta
                         ac consectetur ac, vestibulum at eros.
                     </p>
                     <div class="image m-auto">
-                        <img src="https://i.pinimg.com/550x/35/0e/dc/350edc5c2c0521fc1f0da16e0a97af84.jpg" alt="ads">
+                        <img src="https://i.pinimg.com/550x/35/0e/dc/350edc5c2c0521fc1f0da16e0a97af84.jpg"
+                             alt="ads">
                     </div>
                     <p>
                         Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
                         justo
                         sit
                         amet
-                        risus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
+                        risus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.
+                        Maecenas
                         faucibus
                         mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
                         ridiculus
@@ -206,7 +219,8 @@
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante
                         venenatis
                         dapibus
-                        posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo
+                        posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi
+                        leo
                         risus,
                         porta
                         ac consectetur ac, vestibulum at eros.
@@ -214,7 +228,8 @@
                     <p>
                         Integer posuere erat a ante venenatis dapibus posuere velit
                         aliquet.
-                        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam. Pellentesque
+                        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Aenean eu leo quam.
+                        Pellentesque
                         ornare
                         sem
                         lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.
@@ -246,17 +261,20 @@
                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Integer posuere erat a ante
                         venenatis
                         dapibus
-                        posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi leo
+                        posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Morbi
+                        leo
                         risus,
                         porta
                         ac consectetur ac, vestibulum at eros.
                     </p>
                     <p>
                         Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-                        nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Nulla vitae
+                        nibh, ut fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum. Nulla
+                        vitae
                         elit
                         libero, a
-                        pharetra augue. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis
+                        pharetra augue. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis
+                        dis
                         parturient
                         montes, nascetur ridiculus mus. Curabitur blandit tempus porttitor.
                     </p>
@@ -274,7 +292,8 @@
                         justo
                         sit
                         amet
-                        risus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
+                        risus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.
+                        Maecenas
                         faucibus
                         mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
                         ridiculus
@@ -312,10 +331,12 @@
 
                 <!-- Social share  -->
                 <div class="social-share">
-                    <a class="social-item" href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="social-item" href="https://www.instagram.com/"><i
+                            class="fa-brands fa-instagram"></i></a>
                     <a class="social-item" href="https://www.facebook.com/"><i
                             class="fa-brands fa-square-facebook"></i></a>
-                    <a class="social-item" href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="social-item" href="https://www.linkedin.com/"><i
+                            class="fa-brands fa-linkedin"></i></a>
                     <a class="social-item" href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                 </div>
 
@@ -334,13 +355,15 @@
                                 Founder, Farmdirection.com
                             </div>
                             <div class="author-summary d-md-block d-none">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                tempor
                                 invidunt
                                 ut
                                 labore et dolore magna aliquyam erat, sed diam voluptua
                             </div>
                         </div>
-                        <a class="see-more d-md-none d-block" href="/author/kevin-van-trump">See more from Kevin Van Trump ></a>
+                        <a class="see-more d-md-none d-block" href="/author/kevin-van-trump">See more from Kevin Van
+                            Trump ></a>
                     </div>
                     <div class="author-item">
                         <img class="author-ava col-4 col-md-2" src="images/yoona14.jpg" alt="Natasha Kohl">
@@ -352,13 +375,15 @@
                                 Founder, Farmdirection.com
                             </div>
                             <div class="author-summary d-md-block d-none">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                                tempor
                                 invidunt
                                 ut
                                 labore et dolore magna aliquyam erat, sed diam voluptua
-                            </div>                            
+                            </div>
                         </div>
-                        <a class="see-more d-md-none d-block" href="/author/natasha-kohl">See more from Natasha Kohl ></a>
+                        <a class="see-more d-md-none d-block" href="/author/natasha-kohl">See more from Natasha Kohl
+                            ></a>
                     </div>
                 </div>
 
@@ -383,8 +408,8 @@
                     <div class="container">
                         <div class="also-like-item">
                             <img class="col-12"
-                                src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                                alt="finance-image">
+                                 src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                                 alt="finance-image">
                             <!-- <div class="category">
                                 Finance
                             </div> -->
@@ -406,8 +431,8 @@
                         </div>
                         <div class="also-like-item">
                             <img class="col-12"
-                                src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                                alt="finance-image">
+                                 src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                                 alt="finance-image">
                             <!-- <div class="category">
                                 Finance
                             </div> -->
@@ -428,8 +453,8 @@
                         </div>
                         <div class="also-like-item">
                             <img class="col-12"
-                                src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                                alt="finance-image">
+                                 src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                                 alt="finance-image">
                             <!-- <div class="category">
                                 Finance
                             </div> -->
@@ -450,8 +475,8 @@
                         </div>
                         <div class="also-like-item">
                             <img class="col-12"
-                                src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                                alt="finance-image">
+                                 src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                                 alt="finance-image">
                             <!-- <div class="category">
                                 Finance
                             </div> -->
@@ -482,8 +507,8 @@
                 </h2>
                 <div class="recommended-item">
                     <img class="col-lg-5 col-md-2 col-5"
-                        src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                        alt="finance-image">
+                         src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                         alt="finance-image">
                     <div class="container">
                         <div class="category">
                             Manufacturing & Industry
@@ -498,8 +523,8 @@
                 </div>
                 <div class="recommended-item">
                     <img class="col-lg-5 col-md-2 col-5"
-                        src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                        alt="finance-image">
+                         src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                         alt="finance-image">
                     <div class="container">
                         <div class="category">
                             Sponsor content
@@ -511,8 +536,8 @@
                 </div>
                 <div class="recommended-item">
                     <img class="col-lg-5 col-md-2 col-5"
-                        src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                        alt="finance-image">
+                         src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                         alt="finance-image">
                     <div class="container">
                         <div class="category">
                             Health & Pharma
@@ -527,8 +552,8 @@
                 </div>
                 <div class="recommended-item">
                     <img class="col-lg-5 col-md-2 col-5"
-                        src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                        alt="finance-image">
+                         src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                         alt="finance-image">
                     <div class="container">
                         <div class="category">
                             Health & Pharma
@@ -543,8 +568,8 @@
                 </div>
                 <div class="recommended-item">
                     <img class="col-lg-5 col-md-2 col-5"
-                        src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
-                        alt="finance-image">
+                         src="https://static.tapchitaichinh.vn/w800/images/upload/phunganhtuan/01072022/vn1.jpg"
+                         alt="finance-image">
                     <div class="container">
                         <div class="category">
                             Sponsor content
@@ -562,48 +587,55 @@
     <div class="banner">
         <img src="https://www.cityscape-intelligence.com/sites/cet.com/files/IoT_3.jpg" alt="Internet of things">
     </div>
+</div>
 
 </body>
 <!-- Footer 1 -->
 <div class="top-footer">
-    <img class="col-lg-2 col-sm-4 col-5" src="images/AI_Business_Logo_withCog_center.svg" alt="AI business logo">
-    <div class="top-footer-link col-lg-10 col-md-12 col-sm-12 col-12">
-        <div class="container col-lg-5">
-            <div class="featured col-6">
-                <h4>Featured</h4>
-                <a href="/webinars">Webinars</a>
-                <a href="/galleries">Galleries</a>
-                <a href="/videos">Videos</a>
-                <a href="/podcasts">Podcasts</a>
-                <a href="/blogs">Blogs</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-sm-4 col-5 d-block m-auto">
+                <img class="w-100 m-auto" src="images/AI_Business_Logo_withCog_center.svg" alt="AI business logo">
             </div>
-            <div class="opportunity col-6">
-                <h4>Opportunity</h4>
-                <a href="/newsletters">Newsletters</a>
-                <a href="/events">Events</a>
-                <a href="/continuing-education">Continuing Education</a>
-                <a href="/marketing-solutions">Marketing Solutions</a>
-                <a href="/advertise">Advertise</a>
-            </div>
-        </div>
-        <div class="container col-lg-5">
-            <div class="communicate col-5">
-                <h4>Communicate</h4>
-                <a href="/contact-us">Contact us</a>
-                <a href="/subscriber-customer-service">Subscriber Customer Service</a>
-                <a href="/report-a-problem">Report a Problem</a>
-            </div>
-            <div class="join-us col-6">
-                <div class="container">
-                    <h4>Join us</h4>
-                    <button>Register now!</button>
+            <div class="top-footer-link col-lg-10 col-md-12 col-sm-12 col-12">
+                <div class="container col-lg-5">
+                    <div class="featured col-6">
+                        <h4>Featured</h4>
+                        <a href="/webinars">Webinars</a>
+                        <a href="/galleries">Galleries</a>
+                        <a href="/videos">Videos</a>
+                        <a href="/podcasts">Podcasts</a>
+                        <a href="/blogs">Blogs</a>
+                    </div>
+                    <div class="opportunity col-6">
+                        <h4>Opportunity</h4>
+                        <a href="/newsletters">Newsletters</a>
+                        <a href="/events">Events</a>
+                        <a href="/continuing-education">Continuing Education</a>
+                        <a href="/marketing-solutions">Marketing Solutions</a>
+                        <a href="/advertise">Advertise</a>
+                    </div>
                 </div>
-                <h4>Follow Us</h4>
-                <div class="social-share">
-                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
-                    <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                <div class="container col-lg-5">
+                    <div class="communicate col-5">
+                        <h4>Communicate</h4>
+                        <a href="/contact-us">Contact us</a>
+                        <a href="/subscriber-customer-service">Subscriber Customer Service</a>
+                        <a href="/report-a-problem">Report a Problem</a>
+                    </div>
+                    <div class="join-us col-6">
+                        <div class="container">
+                            <h4>Join us</h4>
+                            <button>Register now!</button>
+                        </div>
+                        <h4>Follow Us</h4>
+                        <div class="social-share">
+                            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+                            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -612,7 +644,7 @@
 
 <!-- Footer  -->
 <footer class="footer">
-    <img col-12 src="images/Whitelogo.png" alt="Informa tech">
+    <img src="images/Whitelogo.png" alt="Informa tech">
     <div class="container">
         <div class="copyright">
             Copyright © 2022 Informa PLC Informa UK Limited is a company registered in England and Wales with company
