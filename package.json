@@ -1,0 +1,23 @@
+{
+  "name": "testforfun",
+  "version": "1.0.0",
+  "description": "khanh\r Khanh2\r Jun\r Nga - Editted\r Hue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secretsword/testforfun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/secretsword/testforfun/issues"
+  },
+  "homepage": "https://github.com/secretsword/testforfun#readme",
+  "dependencies": {
+    "jest": "^29.1.2"
+  }
+}
