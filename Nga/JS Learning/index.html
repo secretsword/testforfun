@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Tool convert gross to net salary </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- CSS STYLE -->
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1> Tool convert gross to net salary </h1>
+        <div class="salary_input">
+            <label class="label_text">
+                Salary:
+                <input id="salary" type="number" min="0">
+            </label>
+            <label class="label_text">
+                Currency:
+                <select name="option" id="currency">
+                    <option value="1"> VND </option>
+                    <option value="2"> USD</option>
+                </select>
+            </label>
+        </div>
+        <div class="region_depen">
+            <label class="label_text">
+                Region:
+                <select name="option" id="region">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </label>
+            <label class="label_text">
+                No. of Dependency:
+                <input id="dependency" type="number" min="0" max = 100>
+            </label>
+        </div>
+        <div>
+            <button onclick="calculateNetSalary()" class="btn"> GROSS TO NET </button>
+        </div>
+    </div>
+    <script>src = "/main.js"</script>
+</body>
+
+</html>
