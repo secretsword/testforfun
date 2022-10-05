@@ -3,9 +3,43 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Learn JS</title>
+        <title>Convert salary tool</title>
+        <link rel="stylesheet" href="./main.css">
     </head>
     <body>
+        <h1>
+            Gross to Net salary converter
+        </h1>
+        <div class="container">
+            <div class="salary">
+                <label>
+                    Salary:
+                </label>
+                <input id="salary" type="number">
+            </div>
+            <div class="region">
+                <label>
+                    Region:
+                </label>
+                <select name="region" id="region">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="dependant">
+                <label>
+                    Number of dependant:
+                </label>
+                <input id="numberOfDependant" type="number">
+            </div>
+            
+            <button onclick="calculateNetSalary()" class="btn">
+                GROSS TO NET
+            </button>
+        </div>
+        
         <script src="./main.js"></script>
     </body>
 </html>

@@ -1,0 +1,38 @@
+body {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.salary, .region, .dependant {
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #3CCF4E;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #ffffff;
+    border: 1px solid white;
+    padding: 10px 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.container input, .container select {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 20px;  
+}
+
+#region{
+    width: 50px;;
+}
+
+#numberOfDependant {
+    width: 100px;
+}
