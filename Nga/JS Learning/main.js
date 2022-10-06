@@ -157,7 +157,7 @@ function calculatePIT5(incomeTax) {
   if (incomeTax > BASE_PIT_4 && incomeTax <= BASE_PIT_5 ){
     PIT_5 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3)) * PIT_LEVEL_5;
   } else{
-    PIT_5 = (BASE_PIT_5 - BASE_PIT_3) * PIT_LEVEL_5;
+    PIT_5 = (BASE_PIT_5 - BASE_PIT_4) * PIT_LEVEL_5;
   }
     return PIT_5 <= 0 ? 0 : PIT_5;
 }
