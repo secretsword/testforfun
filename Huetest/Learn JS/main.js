@@ -21,21 +21,36 @@ const TAX_RATE_5 = 0.25;
 const TAX_RATE_6 = 0.3;
 const TAX_RATE_7 = 0.35;
 
+const MAX_INCOME_RANGE_1 = 5000000;
+const MAX_INCOME_RANGE_2 = 10000000;
+const MAX_INCOME_RANGE_3 = 18000000;
+const MAX_INCOME_RANGE_4 = 32000000;
+const MAX_INCOME_RANGE_5 = 52000000;
+const MAX_INCOME_RANGE_6 = 80000000;
+
+const MAX_TAX_RANGE_1 = MAX_INCOME_RANGE_1 * TAX_RATE_1;
+const MAX_TAX_RANGE_2 = MAX_TAX_RANGE_1 + (MAX_INCOME_RANGE_2 - MAX_INCOME_RANGE_1) * TAX_RATE_2;
+const MAX_TAX_RANGE_3 = MAX_TAX_RANGE_2 + (MAX_INCOME_RANGE_3 - MAX_INCOME_RANGE_2) * TAX_RATE_3;
+const MAX_TAX_RANGE_4 = MAX_TAX_RANGE_3 + (MAX_INCOME_RANGE_4 - MAX_INCOME_RANGE_3) * TAX_RATE_4;
+const MAX_TAX_RANGE_5 = MAX_TAX_RANGE_4 + (MAX_INCOME_RANGE_5 - MAX_INCOME_RANGE_4) * TAX_RATE_5;
+const MAX_TAX_RANGE_6 = MAX_TAX_RANGE_5 + (MAX_INCOME_RANGE_6 - MAX_INCOME_RANGE_5) * TAX_RATE_6;
+
 function calculateNetSalary() {
     let salary = document.getElementById('salary').value;
     let region = document.getElementById('region').value;
     let numberOfDependant = document.getElementById('numberOfDependant').value;
-    
+
     let socialInsurance = calculateSI(salary);
     let healthInsurance = calculateHI(salary);
     let unemploymentInsurance = calculateUI(salary, region);
     let salaryBeforeTax = salary - socialInsurance - healthInsurance - unemploymentInsurance;
-    let taxableSalary = salaryBeforeTax - PERSONAL_DEDUCTION - DEPENDANT_DEDUCTION * numberOfDependant;
+    let taxableSalary = calculateTS (salaryBeforeTax, numberOfDependant);
+    
     let personalIncomeTax = calculatePIT(taxableSalary);
     let netSalary = salaryBeforeTax - personalIncomeTax;
-    return netSalary;
-    
-    console.log(socialInsurance, healthInsurance, unemploymentInsurance, salaryBeforeTax, taxableSalary);
+    // return netSalary;
+
+    console.log(socialInsurance, healthInsurance, unemploymentInsurance, salaryBeforeTax, taxableSalary, personalIncomeTax, netSalary);
 }
 // calculate social insurance 
 function calculateSI(salary) {
@@ -66,7 +81,7 @@ function calculateUI(salary, region) {
         maxSalary = MIN_WAVE_2 * 20;
     }
     if (region == 3) {
-        maxSalary = MIN_WAVE_3 * 20;   
+        maxSalary = MIN_WAVE_3 * 20;
     }
     if (region == 4) {
         maxSalary = MIN_WAVE_4 * 20;
@@ -79,7 +94,45 @@ function calculateUI(salary, region) {
     return result;
 }
 
-// calculate total deduction
-function calculatePIT(taxableSalary) {
-
+// calculate taxable salary 
+function calculateTS (salaryBeforeTax, numberOfDependant) { 
+    let result = salaryBeforeTax - PERSONAL_DEDUCTION - DEPENDANT_DEDUCTION * numberOfDependant;
+    if (result < 0) {
+        result = 0;
+    }
+    return result;
 }
+
+// calculate personal income tax
+function calculatePIT(taxableSalary) {
+    let result;
+    if (taxableSalary <= MAX_INCOME_RANGE_1) {
+        result = taxableSalary * TAX_RATE_1;
+    }
+    else if (taxableSalary <= MAX_INCOME_RANGE_2) {
+        result = (taxableSalary - MAX_INCOME_RANGE_1) * TAX_RATE_2 + MAX_TAX_RANGE_1;
+    }
+
+    else if (taxableSalary <= MAX_INCOME_RANGE_3) {
+        result = (taxableSalary - MAX_INCOME_RANGE_2) * TAX_RATE_3 + MAX_TAX_RANGE_2;
+    }
+
+    else if (taxableSalary <= MAX_INCOME_RANGE_4) {
+        result = (taxableSalary - MAX_INCOME_RANGE_3) * TAX_RATE_4 + MAX_TAX_RANGE_3;
+    }
+
+    else if (taxableSalary <= MAX_INCOME_RANGE_5) {
+        result = (taxableSalary - MAX_INCOME_RANGE_4) * TAX_RATE_5 + MAX_TAX_RANGE_4;
+    }
+
+    else if (taxableSalary <= MAX_INCOME_RANGE_6) {
+        result = (taxableSalary - MAX_INCOME_RANGE_5) * TAX_RATE_6 + MAX_TAX_RANGE_5;
+    }
+
+    else {
+        result = (taxableSalary - MAX_INCOME_RANGE_6) * TAX_RATE_7 + MAX_TAX_RANGE_6;
+    }
+    return result;
+}
+
+
