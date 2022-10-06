@@ -123,7 +123,7 @@ function calculatePIT2(incomeTax){
   let PIT_2;
   if (incomeTax > BASE_PIT_1 && incomeTax <= BASE_PIT_2){
     PIT_2 = (incomeTax - BASE_PIT_1) * PIT_LEVEL_2;
-  } else {
+  } else (incomeTax > BASE_PIT_2);{
     PIT_2 = (BASE_PIT_2 - BASE_PIT_1) * PIT_LEVEL_2;
   }
     return PIT_2 <= 0 ? 0 : PIT_2;
@@ -133,7 +133,7 @@ function calculatePIT3(incomeTax){
   let PIT_3;
   if (incomeTax > BASE_PIT_2 && incomeTax <= BASE_PIT_3){
     PIT_3 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1)) * PIT_LEVEL_3;
-  } else{
+  } else(incomeTax > BASE_PIT_3);{
     PIT_3 = (BASE_PIT_3 - BASE_PIT_2) * PIT_LEVEL_3;
   }
     return PIT_3 <= 0 ? 0 : PIT_3;
@@ -145,7 +145,7 @@ function calculatePIT4(incomeTax) {
   let PIT_4;
   if (incomeTax > BASE_PIT_3 && incomeTax <= BASE_PIT_4 ){
     PIT_4 = (incomeTax - (BASE_PIT_1 + (BASE_PIT_2 - BASE_PIT_1) + (BASE_PIT_3 - BASE_PIT_2))) * PIT_LEVEL_4;
-  } else{
+  } else (incomeTax > BASE_PIT_4); {
     PIT_4 = (BASE_PIT_4 - BASE_PIT_3) * PIT_LEVEL_4;
   }
     return PIT_4 <= 0 ? 0 : PIT_4;
@@ -156,7 +156,7 @@ function calculatePIT5(incomeTax) {
   let PIT_5;
   if (incomeTax > BASE_PIT_4 && incomeTax <= BASE_PIT_5 ){
     PIT_5 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3)) * PIT_LEVEL_5;
-  } else{
+  } else (incomeTax > BASE_PIT_5 && incomeTax < BASE_PIT_5); {
     PIT_5 = (BASE_PIT_5 - BASE_PIT_4) * PIT_LEVEL_5;
   }
     return PIT_5 <= 0 ? 0 : PIT_5;
@@ -167,7 +167,7 @@ function calculatePIT6(incomeTax) {
   let PIT_6;
   if (incomeTax > BASE_PIT_5 && incomeTax <= BASE_PIT_6 ){
     PIT_6 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3) - (BASE_PIT_5 - BASE_PIT_4)) * PIT_LEVEL_6;
-  } else{
+  } else (incomeTax > BASE_PIT_6 && incomeTax < BASE_PIT_6);{
     PIT_6 = (BASE_PIT_6 - BASE_PIT_5) * PIT_LEVEL_6;
   }
     return PIT_6 < 0 ? 0 : PIT_6;
@@ -178,7 +178,7 @@ function calculatePIT7(incomeTax) {
   let PIT_7;
   if (incomeTax > BASE_PIT_7 ){
     PIT_7 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3) - (BASE_PIT_5 - BASE_PIT_4) - (BASE_PIT_6 - BASE_PIT_5)) * PIT_LEVEL_7;
-  }
+  } else (incomeTax > BASE_PIT_4 && incomeTax < BASE_PIT_4);
     return PIT_7 < 0 ? 0 : PIT_7;
 }
 
