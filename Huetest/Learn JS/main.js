@@ -43,14 +43,18 @@ function calculateNetSalary() {
     let socialInsurance = calculateSI(salary);
     let healthInsurance = calculateHI(salary);
     let unemploymentInsurance = calculateUI(salary, region);
+
     let salaryBeforeTax = salary - socialInsurance - healthInsurance - unemploymentInsurance;
     let taxableSalary = calculateTS (salaryBeforeTax, numberOfDependant);
     
     let personalIncomeTax = calculatePIT(taxableSalary);
-    let netSalary = salaryBeforeTax - personalIncomeTax;
-    // return netSalary;
 
+    let netSalary = salaryBeforeTax - personalIncomeTax;
+    let netSalaryUS = new Intl.NumberFormat().format(netSalary);
+    // return netSalary;
+    document.getElementById('netSalary').innerHTML= netSalaryUS;
     console.log(socialInsurance, healthInsurance, unemploymentInsurance, salaryBeforeTax, taxableSalary, personalIncomeTax, netSalary);
+//     console.log (new Intl.NumberFormat().format(netSalary));
 }
 // calculate social insurance 
 function calculateSI(salary) {
@@ -133,6 +137,12 @@ function calculatePIT(taxableSalary) {
         result = (taxableSalary - MAX_INCOME_RANGE_6) * TAX_RATE_7 + MAX_TAX_RANGE_6;
     }
     return result;
+}
+
+// show net salary title
+function removeClass() {
+    let element = document.getElementById('result');
+    element.classList.remove('hide');
 }
 
 

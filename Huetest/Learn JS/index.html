@@ -35,11 +35,15 @@
                 <input id="numberOfDependant" type="number">
             </div>
             
-            <button onclick="calculateNetSalary()" class="btn">
+            <button onclick="calculateNetSalary(), removeClass()" class="btn">
                 GROSS TO NET
             </button>
-        </div>
-        
+        </div> 
+        <p id="result" class="display hide">
+            Your Net Salary is
+        </p>
+        <p id="netSalary">
+        </p>
         <script src="./main.js"></script>
     </body>
 </html>
