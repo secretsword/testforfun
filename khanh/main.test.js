@@ -8,6 +8,4 @@ describe('TEST FUNCTION CALCULATE SI', () => {
   it('should calculate correct if salary > max salary', function () {
     expect(mainFile.calculateSI(100000000)).toBe(1490000 * 20 * 0.08)
   })
-
-
 })
