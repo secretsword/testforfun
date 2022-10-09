@@ -9,22 +9,33 @@ const MIN_SALARY_2 = 3920000;
 const MIN_SALARY_3 = 3430000;
 const MIN_SALARY_4 = 3070000;
 
-//PIT
+//PIT RANGE
 const BASE_INCOME_TAX = 11000000;
-const BASE_PIT_1 = 5000000;
-const BASE_PIT_2 = 10000000;
-const BASE_PIT_3 = 18000000;
-const BASE_PIT_4 = 32000000;
-const BASE_PIT_5 = 52000000;
-const BASE_PIT_6 = 80000000;
-const BASE_PIT_7 = 80000001;
-const PIT_LEVEL_1 = 0.05;
-const PIT_LEVEL_2 = 0.1;
-const PIT_LEVEL_3 = 0.15;
-const PIT_LEVEL_4 = 0.2;
-const PIT_LEVEL_5 = 0.25;
-const PIT_LEVEL_6 = 0.3;
-const PIT_LEVEL_7 = 0.35;
+const LEVEL_1 = 5000000;     
+const LEVEL_2 = 10000000;     
+const LEVEL_3 = 18000000;  
+const LEVEL_4 = 32000000;    
+const LEVEL_5 = 52000000;   
+const LEVEL_6 = 80000000;  
+
+// PIT_RATE
+const RATE_1 = 0.05;
+const RATE_2 = 0.1;
+const RATE_3 = 0.15;
+const RATE_4 = 0.2;
+const RATE_5 = 0.25;
+const RATE_6 = 0.3;
+const RATE_7 = 0.35;
+
+
+//MAX PIT
+const MAX_PIT_1 = LEVEL_1 * RATE_1;
+const MAX_PIT_2 = (LEVEL_2 - LEVEL_1) * RATE_2;
+const MAX_PIT_3 = (LEVEL_3 - LEVEL_2) * RATE_3;
+const MAX_PIT_4 = (LEVEL_4 - LEVEL_3) * RATE_4;
+const MAX_PIT_5 = (LEVEL_5 - LEVEL_4) * RATE_5;
+const MAX_PIT_6 = (LEVEL_6 - LEVEL_5) * RATE_6;
+
 
 function calculateNetSalary() {
   let salary = document.getElementById('salary').value;
@@ -38,19 +49,18 @@ function calculateNetSalary() {
 
   //calculate PIT
   let incomeBeforeTax = calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentInsurance);
-  let incomeTax = calculateIT(incomeBeforeTax);
-  let personalIncomeTaxLevel1 = calculatePIT1(incomeTax);
-  let personalIncomeTaxLevel2 = calculatePIT2(incomeTax);
-  let personalIncomeTaxLevel3 = calculatePIT3(incomeTax);
-  let personalIncomeTaxLevel4 = calculatePIT4(incomeTax);
-  let personalIncomeTaxLevel5 = calculatePIT5(incomeTax);
-  let personalIncomeTaxLevel6 = calculatePIT6(incomeTax);
-  let personalIncomeTaxLevel7 = calculatePIT7(incomeTax);
+  let taxIncome = calculateTI(incomeBeforeTax);
+  let personalTaxIncome1 = calculatePIT1(taxIncome);
+  let personalTaxIncome2 = calculatePIT2(taxIncome);
+  let personalTaxIncome3 = calculatePIT3(taxIncome);
+  let personalTaxIncome4 = calculatePIT4(taxIncome);
+  let personalTaxIncome5 = calculatePIT5(taxIncome);
+  let personalTaxIncome6 = calculatePIT6(taxIncome);
+  let personalTaxIncome7 = calculatePIT7(taxIncome);
 
   // netResult = salary - bhxh - yte - thatnghiep - pit
-  console.log(salary, socialInsurance, medicalInsurance, unemploymentInsurance, 
-    incomeBeforeTax, incomeTax, personalIncomeTaxLevel1, personalIncomeTaxLevel2, personalIncomeTaxLevel3,
-    personalIncomeTaxLevel4, personalIncomeTaxLevel5, personalIncomeTaxLevel6, personalIncomeTaxLevel7);
+  console.log(salary, socialInsurance, medicalInsurance, unemploymentInsurance, incomeBeforeTax, taxIncome, personalTaxIncome1,
+    personalTaxIncome2, personalTaxIncome3, personalTaxIncome4, personalTaxIncome5, personalTaxIncome6, personalTaxIncome7);
 }
 
 function calculateSI(salary) {
@@ -102,85 +112,100 @@ function calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentIns
 }
 
 
-//calculate income tax
-function calculateIT(incomeBeforeTax){
-  let incomeTax = incomeBeforeTax - BASE_INCOME_TAX;
-  return incomeTax < 0 ? 0 : incomeTax;
+//calculate tax income
+function calculateTI(incomeBeforeTax){
+  let taxIncome = incomeBeforeTax - BASE_INCOME_TAX;
+  return taxIncome < 0 ? 0 : taxIncome;
 }
 
 // calculate PIT
-function calculatePIT1(incomeTax){
+function calculatePIT1 (taxIncome){
   let PIT_1;
-  if (incomeTax <= BASE_PIT_1){
-    PIT_1 = incomeTax * PIT_LEVEL_1;
-  } else {
-    PIT_1 = BASE_PIT_1 * PIT_LEVEL_1;
-  }
-  return PIT_1 <= 0 ? 0 : PIT_1;
+  if (taxIncome <=0){
+    return PIT_1 = 0;
+  } 
+  else if (taxIncome > 0 && taxIncome <= LEVEL_1){
+    return PIT_1 = taxIncome * RATE_1;
+  } 
+  else if (taxIncome > LEVEL_1)
+    return PIT_1 = MAX_PIT_1;
 }
 
-function calculatePIT2(incomeTax){
+function calculatePIT2(taxIncome){
   let PIT_2;
-  if (incomeTax > BASE_PIT_1 && incomeTax <= BASE_PIT_2){
-    PIT_2 = (incomeTax - BASE_PIT_1) * PIT_LEVEL_2;
-  } else (incomeTax > BASE_PIT_2);{
-    PIT_2 = (BASE_PIT_2 - BASE_PIT_1) * PIT_LEVEL_2;
+  if (taxIncome <= LEVEL_1){
+    return PIT_2 = 0;
   }
-    return PIT_2 <= 0 ? 0 : PIT_2;
+  else if (taxIncome > LEVEL_1 && taxIncome <= LEVEL_2){
+    return PIT_2 = (taxIncome - LEVEL_1)*RATE_2;
+  } 
+  else if (taxIncome > LEVEL_2){
+    return PIT_2 = MAX_PIT_2;
+  }
 }
 
-function calculatePIT3(incomeTax){
-  let PIT_3;
-  if (incomeTax > BASE_PIT_2 && incomeTax <= BASE_PIT_3){
-    PIT_3 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1)) * PIT_LEVEL_3;
-  } else(incomeTax > BASE_PIT_3);{
-    PIT_3 = (BASE_PIT_3 - BASE_PIT_2) * PIT_LEVEL_3;
+function calculatePIT3(taxIncome){
+  let PIT_3; 
+  if (taxIncome <= LEVEL_2){
+    return PIT_3 = 0;
   }
-    return PIT_3 <= 0 ? 0 : PIT_3;
+  else if (taxIncome > LEVEL_2 && taxIncome <= LEVEL_3){
+    return PIT_3 = (taxIncome - LEVEL_2)*RATE_3;
+  }
+  else if (taxIncome > LEVEL_3){
+    return PIT_3 = MAX_PIT_3;
+  }
 }
 
-
-
-function calculatePIT4(incomeTax) {
+function calculatePIT4(taxIncome){
   let PIT_4;
-  if (incomeTax > BASE_PIT_3 && incomeTax <= BASE_PIT_4 ){
-    PIT_4 = (incomeTax - (BASE_PIT_1 + (BASE_PIT_2 - BASE_PIT_1) + (BASE_PIT_3 - BASE_PIT_2))) * PIT_LEVEL_4;
-  } else (incomeTax > BASE_PIT_4); {
-    PIT_4 = (BASE_PIT_4 - BASE_PIT_3) * PIT_LEVEL_4;
+  if (taxIncome <= LEVEL_3){
+    return PIT_4 = 0;
   }
-    return PIT_4 <= 0 ? 0 : PIT_4;
+  else if (taxIncome > LEVEL_3 && taxIncome <= LEVEL_4){
+    return PIT_4 = (taxIncome - LEVEL_3) *RATE_4;
+  }
+  else if (taxIncome > LEVEL_4){
+    return PIT_4 = MAX_PIT_4;
+  }
 }
 
-
-function calculatePIT5(incomeTax) {
+function calculatePIT5(taxIncome){
   let PIT_5;
-  if (incomeTax > BASE_PIT_4 && incomeTax <= BASE_PIT_5 ){
-    PIT_5 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3)) * PIT_LEVEL_5;
-  } else (incomeTax > BASE_PIT_5 && incomeTax < BASE_PIT_5); {
-    PIT_5 = (BASE_PIT_5 - BASE_PIT_4) * PIT_LEVEL_5;
+  if (taxIncome <= LEVEL_4){
+    return PIT_5 = 0;
   }
-    return PIT_5 <= 0 ? 0 : PIT_5;
+  else if (taxIncome >LEVEL_4 && taxIncome <= LEVEL_5){
+    return PIT_5 = (taxIncome - LEVEL_4) *RATE_5;
+  }
+  else if (taxIncome > LEVEL_5){
+    return PIT_5 = MAX_PIT_5;
+  }
 }
 
-
-function calculatePIT6(incomeTax) {
+function calculatePIT6(taxIncome){
   let PIT_6;
-  if (incomeTax > BASE_PIT_5 && incomeTax <= BASE_PIT_6 ){
-    PIT_6 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3) - (BASE_PIT_5 - BASE_PIT_4)) * PIT_LEVEL_6;
-  } else (incomeTax > BASE_PIT_6 && incomeTax < BASE_PIT_6);{
-    PIT_6 = (BASE_PIT_6 - BASE_PIT_5) * PIT_LEVEL_6;
+  if (taxIncome <= LEVEL_5){
+    return PIT_6 = 0;
   }
-    return PIT_6 < 0 ? 0 : PIT_6;
+  else if (taxIncome >LEVEL_5 && taxIncome <= LEVEL_6){
+    return PIT_6 = (taxIncome - LEVEL_5) * RATE_6;
+  }
+  else if (taxIncome > LEVEL_6){
+    return PIT_6 = MAX_PIT_6;
+  }
 }
 
-
-function calculatePIT7(incomeTax) {
+function calculatePIT7(taxIncome){
   let PIT_7;
-  if (incomeTax > BASE_PIT_7 ){
-    PIT_7 = (incomeTax - BASE_PIT_1 - (BASE_PIT_2 - BASE_PIT_1) - (BASE_PIT_3 - BASE_PIT_2) - (BASE_PIT_4 - BASE_PIT_3) - (BASE_PIT_5 - BASE_PIT_4) - (BASE_PIT_6 - BASE_PIT_5)) * PIT_LEVEL_7;
-  } else (incomeTax > BASE_PIT_4 && incomeTax < BASE_PIT_4);
-    return PIT_7 < 0 ? 0 : PIT_7;
+  if (taxIncome <= LEVEL_6){
+    return PIT_7 = 0;
+  }
+  else if (taxIncome > LEVEL_6){
+    return PIT_7 = (taxIncome - LEVEL_6) * RATE_7;
+  }
 }
+
 
 module.exports = {
   calculateSI, calculateMI, calculateUI
