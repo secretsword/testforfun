@@ -99,7 +99,7 @@ function calculateUI(salary, region) {
 }
 
 // calculate taxable salary 
-function calculateTS (salaryBeforeTax, numberOfDependant) { 
+function calculateTS(salaryBeforeTax, numberOfDependant) { 
     let result = salaryBeforeTax - PERSONAL_DEDUCTION - DEPENDANT_DEDUCTION * numberOfDependant;
     if (result < 0) {
         result = 0;
@@ -146,3 +146,6 @@ function removeClass() {
 }
 
 
+module.exports = {
+    calculateSI, calculateHI, calculateUI, calculateTS, calculatePIT, calculateNetSalary
+}
