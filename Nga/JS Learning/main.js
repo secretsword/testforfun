@@ -9,6 +9,10 @@ const MIN_SALARY_2 = 3920000;
 const MIN_SALARY_3 = 3430000;
 const MIN_SALARY_4 = 3070000;
 
+
+// DEPENDENCY DEDUCTION
+const DEPENDENCY_DEDUCTION = 4400000;
+
 //PIT RANGE
 const BASE_INCOME_TAX = 11000000;
 const LEVEL_1 = 5000000;     
@@ -40,16 +44,16 @@ const MAX_PIT_6 = (LEVEL_6 - LEVEL_5) * RATE_6;
 function calculateNetSalary() {
   let salary = document.getElementById('salary').value;
   let region = document.getElementById('region').value;
-  let dependency = document.getElementById('dependency').value;
-  let netResult; // net salary need to calculate
 
   let socialInsurance = calculateSI(salary);
   let medicalInsurance = calculateMI(salary);
   let unemploymentInsurance = calculateUI(salary, region);
-
-  //calculate PIT
   let incomeBeforeTax = calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentInsurance);
-  let taxIncome = calculateTI(incomeBeforeTax);
+
+  let dependency = document.getElementById('dependency').value;
+  let dependencyDeduction = calculateDD(dependency);
+
+  let taxIncome = calculateTI(incomeBeforeTax, dependencyDeduction);
   let personalTaxIncome1 = calculatePIT1(taxIncome);
   let personalTaxIncome2 = calculatePIT2(taxIncome);
   let personalTaxIncome3 = calculatePIT3(taxIncome);
@@ -57,10 +61,19 @@ function calculateNetSalary() {
   let personalTaxIncome5 = calculatePIT5(taxIncome);
   let personalTaxIncome6 = calculatePIT6(taxIncome);
   let personalTaxIncome7 = calculatePIT7(taxIncome);
+  let personalTaxtIcome = calculatePIT(personalTaxIncome1,personalTaxIncome2,personalTaxIncome3,personalTaxIncome4,personalTaxIncome5,personalTaxIncome6,personalTaxIncome7);
+  let netSalary = calculateNS(salary, socialInsurance, medicalInsurance, unemploymentInsurance, personalTaxtIcome);
 
-  // netResult = salary - bhxh - yte - thatnghiep - pit
-  console.log(salary, socialInsurance, medicalInsurance, unemploymentInsurance, incomeBeforeTax, taxIncome, personalTaxIncome1,
-    personalTaxIncome2, personalTaxIncome3, personalTaxIncome4, personalTaxIncome5, personalTaxIncome6, personalTaxIncome7);
+
+  // console log
+  console.log(salary, socialInsurance, medicalInsurance, unemploymentInsurance, incomeBeforeTax, dependencyDeduction, taxIncome, personalTaxtIcome, netSalary,
+    personalTaxIncome1, personalTaxIncome2, personalTaxIncome3, personalTaxIncome4, personalTaxIncome5, personalTaxIncome6, personalTaxIncome7);
+}
+
+// calculate dependency deduction
+function calculateDD(dependency){
+  result = dependency * DEPENDENCY_DEDUCTION;
+  return result < 0 ? 0 :result;
 }
 
 function calculateSI(salary) {
@@ -113,12 +126,20 @@ function calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentIns
 
 
 //calculate tax income
-function calculateTI(incomeBeforeTax){
-  let taxIncome = incomeBeforeTax - BASE_INCOME_TAX;
+function calculateTI(incomeBeforeTax,dependencyDeduction){
+  let taxIncome = incomeBeforeTax - BASE_INCOME_TAX - dependencyDeduction;
   return taxIncome < 0 ? 0 : taxIncome;
 }
 
 // calculate PIT
+function calculatePIT(personalTaxIncome1,personalTaxIncome2,personalTaxIncome3,
+  personalTaxIncome4,personalTaxIncome5,personalTaxIncome6,personalTaxIncome7)
+{ let PIT;
+  PIT = personalTaxIncome1 + personalTaxIncome2 + personalTaxIncome3 + personalTaxIncome4 + 
+  personalTaxIncome5 + personalTaxIncome6 + personalTaxIncome7;
+  return PIT < 0 ? 0:PIT;
+  }
+
 function calculatePIT1 (taxIncome){
   let PIT_1;
   if (taxIncome <=0){
@@ -205,6 +226,15 @@ function calculatePIT7(taxIncome){
     return PIT_7 = (taxIncome - LEVEL_6) * RATE_7;
   }
 }
+
+// calculate net salary
+function calculateNS(salary, socialInsurance, medicalInsurance, unemploymentInsurance, personalTaxtIcome){
+  let netSalary;
+  netSalary = salary - socialInsurance - medicalInsurance - unemploymentInsurance - personalTaxtIcome;
+  return netSalary;
+}
+
+
 
 
 module.exports = {
