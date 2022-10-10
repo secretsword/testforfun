@@ -1,11 +1,24 @@
 body {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
-label, .title, #netSalary, .display{
+.bold-text{
     font-weight: bold;
-    font-size: 20px;
+    /* font-size: 20px; */
+}
+.red-text {
+    color: red;
+}
+
+.input-text {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;  
+}
+
+.normal-text {
+    font-size: 16px;
 }
 
 .salary, .region, .dependant {
@@ -27,12 +40,6 @@ label, .title, #netSalary, .display{
     cursor: pointer;
 }
 
-.container input, .container select {
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 20px;  
-}
-
 #region{
     width: 50px;;
 }
@@ -49,6 +56,11 @@ label, .title, #netSalary, .display{
     color:#3CCF4E;
 }
 
-#netSalary {
+#net-salary {
     color: red;
+}
+
+.grey-background {
+    background-color: #bdbec0;
+    padding: 5px;
 }

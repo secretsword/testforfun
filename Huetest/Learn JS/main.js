@@ -50,11 +50,75 @@ function calculateNetSalary() {
     let personalIncomeTax = calculatePIT(taxableSalary);
 
     let netSalary = salaryBeforeTax - personalIncomeTax;
+
+    // Display net salary 
     let netSalaryUS = new Intl.NumberFormat().format(netSalary);
-    // return netSalary;
-    document.getElementById('netSalary').innerHTML= netSalaryUS;
+    document.getElementById('net-salary').innerHTML= 'Your Net Salary is: ' + netSalaryUS;
+    let displayNetSalary = document.getElementById('net-salary');
+    displayNetSalary.classList.remove('hide');
+
+    // Display gross salary 
+    let grossSalaryUS = 'GROSS SALARY: ' + new Intl.NumberFormat().format(salary);
+    document.getElementById('gross-salary').innerHTML= grossSalaryUS;
+    let displayGrossSalary = document.getElementById('gross-salary');
+    displayGrossSalary.classList.remove('hide');
+
+    // Display social insurance 
+    let socialInsuranceUS = 'Social Insurance: ' + new Intl.NumberFormat().format(socialInsurance);
+    document.getElementById('social-insurance').innerHTML= socialInsuranceUS;
+    let displaySocialInsurance = document.getElementById('social-insurance');
+    displaySocialInsurance.classList.remove('hide');
+
+    // Display Health insurance 
+    let healthInsuranceUS = 'Health Insurance: ' + new Intl.NumberFormat().format(healthInsurance);
+    document.getElementById('health-insurance').innerHTML= healthInsuranceUS;
+    let displayHealthInsurance = document.getElementById('health-insurance');
+    displayHealthInsurance.classList.remove('hide');
+
+    // Display Unemployment Insurance 
+    let unemploymentInsuranceUS = 'Unemployment Insurance: ' + new Intl.NumberFormat().format(unemploymentInsurance);
+    document.getElementById('unemployment-insurance').innerHTML= unemploymentInsuranceUS;
+    let displayUnemploymentInsurance = document.getElementById('unemployment-insurance');
+    displayUnemploymentInsurance.classList.remove('hide');
+
+    // Display salary Before Tax 
+    let salaryBeforeTaxUS = 'SALARY BEFORE TAX: ' + new Intl.NumberFormat().format(salaryBeforeTax);
+    document.getElementById('salary-before-tax').innerHTML= salaryBeforeTaxUS;
+    let displaySalaryBeforeTax = document.getElementById('salary-before-tax');
+    displaySalaryBeforeTax.classList.remove('hide');
+
+    // Display deduction 
+    let personalDeductionUS = 'Personal deduction: ' + new Intl.NumberFormat().format(PERSONAL_DEDUCTION);
+    document.getElementById('personal-deduction').innerHTML= personalDeductionUS;
+    let displayPersonalDeduction = document.getElementById('personal-deduction');
+    displayPersonalDeduction.classList.remove('hide');
+
+    let dependantDeductionUS = 'Dependant deduction: ' + new Intl.NumberFormat().format(DEPENDANT_DEDUCTION * numberOfDependant);
+    document.getElementById('dependant-deduction').innerHTML= dependantDeductionUS;
+    let displayDependantDeduction = document.getElementById('dependant-deduction');
+    displayDependantDeduction.classList.remove('hide');
+
+    // Display taxable salary 
+    let taxableSalaryUS = 'TAXABLE SALARY: ' + new Intl.NumberFormat().format(taxableSalary);
+    document.getElementById('taxable-salary').innerHTML= taxableSalaryUS;
+    let displayTaxableSalary = document.getElementById('taxable-salary');
+    displayTaxableSalary.classList.remove('hide');
+
+    // Display PIT 
+    let personalIncomeTaxUS = 'Personal Income Tax: ' + new Intl.NumberFormat().format(personalIncomeTax);
+    document.getElementById('pit').innerHTML= personalIncomeTaxUS;
+    let displayPersonalIncomeTax = document.getElementById('pit');
+    displayPersonalIncomeTax.classList.remove('hide');
+
+    // Display Net Salary at bottom 
+    document.getElementById('net-result').innerHTML= 'NET SALARY: ' + netSalaryUS;
+    let displayNetResult = document.getElementById('net-result');
+    displayNetResult.classList.remove('hide');
+
+
+
     console.log(socialInsurance, healthInsurance, unemploymentInsurance, salaryBeforeTax, taxableSalary, personalIncomeTax, netSalary);
-//     console.log (new Intl.NumberFormat().format(netSalary));
+
 }
 // calculate social insurance 
 function calculateSI(salary) {
@@ -139,13 +203,12 @@ function calculatePIT(taxableSalary) {
     return result;
 }
 
-// show net salary title
-function removeClass() {
-    let element = document.getElementById('result');
-    element.classList.remove('hide');
-}
+// Display net salary
+// function removeClass() {
+//     let element = document.getElementById('net-salary');
+//     element.classList.remove('hide');
+// }
 
 
-module.exports = {
-    calculateSI, calculateHI, calculateUI, calculateTS, calculatePIT, calculateNetSalary
+module.exports = { calculateSI, calculateHI, calculateUI, calculateTS, calculatePIT, calculateNetSalary
 }
