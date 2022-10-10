@@ -52,3 +52,31 @@
     background-color: rgb(142, 17, 17);
     cursor: pointer;
 }
+
+.display{
+    display: none;
+}
+
+.grey-text{
+    font-size: 1.125rem;
+    color: black;
+    margin: 2rem 0rem 0.5rem 0rem;
+    font-weight: bold;
+    background-color: grey;
+    width: 30rem;
+    padding: 0.5rem;
+}
+
+.normal-text, .small-text{
+    font-size: 1rem;
+    color: black;
+    margin: 1rem 0rem;
+    padding-left: 1rem; ;
+}
+
+
+.bold-text-red{
+    color: red;
+    font-size: 1.125rem;
+    font-weight: bold;
+}

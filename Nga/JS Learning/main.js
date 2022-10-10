@@ -11,10 +11,10 @@ const MIN_SALARY_4 = 3070000;
 
 
 // DEPENDENCY DEDUCTION
+const PERSONAL_DEDUCTION = 11000000;
 const DEPENDENCY_DEDUCTION = 4400000;
 
 //PIT RANGE
-const BASE_INCOME_TAX = 11000000;
 const LEVEL_1 = 5000000;     
 const LEVEL_2 = 10000000;     
 const LEVEL_3 = 18000000;  
@@ -42,31 +42,121 @@ const MAX_PIT_6 = (LEVEL_6 - LEVEL_5) * RATE_6;
 
 
 function calculateNetSalary() {
+  // display gross salary
   let salary = document.getElementById('salary').value;
+  let grossSalary =  document.getElementById("gross-salary");
+  grossSalary.classList.remove('display');
+  document.getElementById("gross-salary").innerHTML = 'Gross Salary: ' + salary;
+
   let region = document.getElementById('region').value;
 
+
+  // displa social insurance
   let socialInsurance = calculateSI(salary);
+  let displaySocialInsurance = document.getElementById('social-insurance');
+  displaySocialInsurance.classList.remove('display');
+  document.getElementById("social-insurance").innerHTML = 'Social Insurance: ' + socialInsurance;
+
+  // display medical insurance
   let medicalInsurance = calculateMI(salary);
+  let displayMedicalInsurance = document.getElementById('medical-insurance');
+  document.getElementById("medical-insurance").innerHTML = 'Medical Insurance: ' + medicalInsurance;
+  displayMedicalInsurance.classList.remove('display');
+  
+  // display unemployment insurance
   let unemploymentInsurance = calculateUI(salary, region);
+  let displayUnemploymentInsurance = document.getElementById('unemployment-insurance');
+  document.getElementById('unemployment-insurance').innerHTML = 'Unemployment Insurance: ' + unemploymentInsurance;
+  displayUnemploymentInsurance.classList.remove('display');
+
+
+  // display income before tax
   let incomeBeforeTax = calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentInsurance);
+  let displayincomeBeforeTax = document.getElementById('income-before-tax');
+  document.getElementById('income-before-tax').innerHTML = 'Income Before Tax: ' + incomeBeforeTax;
+  displayincomeBeforeTax.classList.remove('display');
 
+  // display dependency deduction
   let dependency = document.getElementById('dependency').value;
-  let dependencyDeduction = calculateDD(dependency);
+  let displayPersonalDeduction = document.getElementById('personal-deduction');
+  document.getElementById('personal-deduction').innerHTML = 'Personal Deduction: ' + PERSONAL_DEDUCTION;
+  displayPersonalDeduction.classList.remove('display');
 
+
+  // display dependency deduction
+  let dependencyDeduction = calculateDD(dependency);
+  let displayDependencyDeduction = document.getElementById('dependency-deduction');
+  document.getElementById('dependency-deduction').innerHTML = 'Dependency Deduction: ' + dependencyDeduction;
+  displayDependencyDeduction.classList.remove('display');
+
+  // Display tax income
   let taxIncome = calculateTI(incomeBeforeTax, dependencyDeduction);
+  let displayTaxIncome = document.getElementById('tax-income');
+  document.getElementById('tax-income').innerHTML = 'Tax Income: ' + taxIncome;
+  displayTaxIncome.classList.remove('display');
+
+
+  // display PIT1
   let personalTaxIncome1 = calculatePIT1(taxIncome);
+  let displayPersonalTaxIncome1 = document.getElementById('pit-1');
+  document.getElementById('pit-1').innerHTML = 'PIT Range to 5.000.000 VND: ' + personalTaxIncome1;
+  displayPersonalTaxIncome1.classList.remove('display');
+
+   // display PIT2
   let personalTaxIncome2 = calculatePIT2(taxIncome);
+  let displayPersonalTaxIncome2 = document.getElementById('pit-2');
+  document.getElementById('pit-2').innerHTML = 'PIT Range from 5.000.001 to 10.000.000 VND: ' + personalTaxIncome2;
+  displayPersonalTaxIncome2.classList.remove('display');
+
+   // display PIT3
   let personalTaxIncome3 = calculatePIT3(taxIncome);
+  let displayPersonalTaxIncome3 = document.getElementById('pit-3');
+  document.getElementById('pit-3').innerHTML = 'PIT Range from 10.000.000 to 18.000.000 VND: ' + personalTaxIncome3;
+  displayPersonalTaxIncome3.classList.remove('display');
+
+
+   // display PIT4
   let personalTaxIncome4 = calculatePIT4(taxIncome);
+  let displayPersonalTaxIncome4 = document.getElementById('pit-4');
+  document.getElementById('pit-4').innerHTML = 'PIT Range from 18.000.001 to 32.000.000 VND: ' + personalTaxIncome4;
+  displayPersonalTaxIncome4.classList.remove('display');
+
+   // display PIT5
   let personalTaxIncome5 = calculatePIT5(taxIncome);
+  let displayPersonalTaxIncome5 = document.getElementById('pit-5');
+  document.getElementById('pit-5').innerHTML = 'PIT Range from 32.000.001 to 52.000.000 VND: ' + personalTaxIncome5;
+  displayPersonalTaxIncome5.classList.remove('display');
+
+
+   // display PIT6
   let personalTaxIncome6 = calculatePIT6(taxIncome);
+  let displayPersonalTaxIncome6 = document.getElementById('pit-6');
+  document.getElementById('pit-6').innerHTML = 'PIT Range from 52.000.001 to 80.000.000 VND: ' + personalTaxIncome6;
+  displayPersonalTaxIncome6.classList.remove('display');
+
+
+   // display PIT7
   let personalTaxIncome7 = calculatePIT7(taxIncome);
-  let personalTaxtIcome = calculatePIT(personalTaxIncome1,personalTaxIncome2,personalTaxIncome3,personalTaxIncome4,personalTaxIncome5,personalTaxIncome6,personalTaxIncome7);
-  let netSalary = calculateNS(salary, socialInsurance, medicalInsurance, unemploymentInsurance, personalTaxtIcome);
+  let displayPersonalTaxIncome7 = document.getElementById('pit-7');
+  document.getElementById('pit-7').innerHTML = 'PIT Range from 80.000.001 VND: ' + personalTaxIncome7;
+  displayPersonalTaxIncome7.classList.remove('display');
+
+
+   // display PIT
+  let personalTaxIncome = calculatePIT(personalTaxIncome1,personalTaxIncome2,personalTaxIncome3,personalTaxIncome4,personalTaxIncome5,personalTaxIncome6,personalTaxIncome7);
+  let displayPersonalTaxtIcome = document.getElementById('personal-tax-income');
+  document.getElementById('personal-tax-income').innerHTML = 'Personal Tax Income: ' + personalTaxIncome;
+  displayPersonalTaxtIcome.classList.remove('display');
+
+  // Display net salary
+  let netSalary = calculateNS(salary, socialInsurance, medicalInsurance, unemploymentInsurance, personalTaxIncome);
+  let displayNetSalary = document.getElementById('net-salary');
+  document.getElementById('net-salary').innerHTML = 'Net Salary: ' + netSalary;
+  displayNetSalary.classList.remove('display');
 
 
   // console log
-  console.log(salary, socialInsurance, medicalInsurance, unemploymentInsurance, incomeBeforeTax, dependencyDeduction, taxIncome, personalTaxtIcome, netSalary,
+  console.log(salary, socialInsurance, medicalInsurance, unemploymentInsurance, incomeBeforeTax, dependencyDeduction, taxIncome, personalTaxIncome, netSalary,
     personalTaxIncome1, personalTaxIncome2, personalTaxIncome3, personalTaxIncome4, personalTaxIncome5, personalTaxIncome6, personalTaxIncome7);
 }
 
@@ -127,7 +217,7 @@ function calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentIns
 
 //calculate tax income
 function calculateTI(incomeBeforeTax,dependencyDeduction){
-  let taxIncome = incomeBeforeTax - BASE_INCOME_TAX - dependencyDeduction;
+  let taxIncome = incomeBeforeTax - PERSONAL_DEDUCTION - dependencyDeduction;
   return taxIncome < 0 ? 0 : taxIncome;
 }
 
@@ -158,7 +248,7 @@ function calculatePIT2(taxIncome){
     return PIT_2 = 0;
   }
   else if (taxIncome > LEVEL_1 && taxIncome <= LEVEL_2){
-    return PIT_2 = (taxIncome - LEVEL_1)*RATE_2;
+    return PIT_2 = (taxIncome - LEVEL_1) * RATE_2;
   } 
   else if (taxIncome > LEVEL_2){
     return PIT_2 = MAX_PIT_2;
@@ -171,7 +261,7 @@ function calculatePIT3(taxIncome){
     return PIT_3 = 0;
   }
   else if (taxIncome > LEVEL_2 && taxIncome <= LEVEL_3){
-    return PIT_3 = (taxIncome - LEVEL_2)*RATE_3;
+    return PIT_3 = (taxIncome - LEVEL_2) * RATE_3;
   }
   else if (taxIncome > LEVEL_3){
     return PIT_3 = MAX_PIT_3;
@@ -184,7 +274,7 @@ function calculatePIT4(taxIncome){
     return PIT_4 = 0;
   }
   else if (taxIncome > LEVEL_3 && taxIncome <= LEVEL_4){
-    return PIT_4 = (taxIncome - LEVEL_3) *RATE_4;
+    return PIT_4 = (taxIncome - LEVEL_3) * RATE_4;
   }
   else if (taxIncome > LEVEL_4){
     return PIT_4 = MAX_PIT_4;
@@ -234,7 +324,7 @@ function calculateNS(salary, socialInsurance, medicalInsurance, unemploymentInsu
   return netSalary;
 }
 
-
+// Show result on screen
 
 
 module.exports = {
