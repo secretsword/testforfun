@@ -48,6 +48,7 @@ function calculateNetSalary() {
   grossSalary.classList.remove('display');
   document.getElementById("gross-salary").innerHTML = 'Gross Salary: ' + salary;
 
+
   let region = document.getElementById('region').value;
 
 
@@ -57,12 +58,14 @@ function calculateNetSalary() {
   displaySocialInsurance.classList.remove('display');
   document.getElementById("social-insurance").innerHTML = 'Social Insurance: ' + socialInsurance;
 
+
   // display medical insurance
   let medicalInsurance = calculateMI(salary);
   let displayMedicalInsurance = document.getElementById('medical-insurance');
   document.getElementById("medical-insurance").innerHTML = 'Medical Insurance: ' + medicalInsurance;
   displayMedicalInsurance.classList.remove('display');
   
+
   // display unemployment insurance
   let unemploymentInsurance = calculateUI(salary, region);
   let displayUnemploymentInsurance = document.getElementById('unemployment-insurance');
@@ -75,6 +78,7 @@ function calculateNetSalary() {
   let displayincomeBeforeTax = document.getElementById('income-before-tax');
   document.getElementById('income-before-tax').innerHTML = 'Income Before Tax: ' + incomeBeforeTax;
   displayincomeBeforeTax.classList.remove('display');
+
 
   // display dependency deduction
   let dependency = document.getElementById('dependency').value;
@@ -89,6 +93,7 @@ function calculateNetSalary() {
   document.getElementById('dependency-deduction').innerHTML = 'Dependency Deduction: ' + dependencyDeduction;
   displayDependencyDeduction.classList.remove('display');
 
+
   // Display tax income
   let taxIncome = calculateTI(incomeBeforeTax, dependencyDeduction);
   let displayTaxIncome = document.getElementById('tax-income');
@@ -102,11 +107,13 @@ function calculateNetSalary() {
   document.getElementById('pit-1').innerHTML = 'PIT Range to 5.000.000 VND: ' + personalTaxIncome1;
   displayPersonalTaxIncome1.classList.remove('display');
 
+
    // display PIT2
   let personalTaxIncome2 = calculatePIT2(taxIncome);
   let displayPersonalTaxIncome2 = document.getElementById('pit-2');
   document.getElementById('pit-2').innerHTML = 'PIT Range from 5.000.001 to 10.000.000 VND: ' + personalTaxIncome2;
   displayPersonalTaxIncome2.classList.remove('display');
+
 
    // display PIT3
   let personalTaxIncome3 = calculatePIT3(taxIncome);
@@ -120,6 +127,7 @@ function calculateNetSalary() {
   let displayPersonalTaxIncome4 = document.getElementById('pit-4');
   document.getElementById('pit-4').innerHTML = 'PIT Range from 18.000.001 to 32.000.000 VND: ' + personalTaxIncome4;
   displayPersonalTaxIncome4.classList.remove('display');
+
 
    // display PIT5
   let personalTaxIncome5 = calculatePIT5(taxIncome);
@@ -175,13 +183,14 @@ function calculateSI(salary) {
   return result;
 }
 
-function calculateMI(salary) {
-  if (salary > MAX_SALARY) {
-    salary = MAX_SALARY;
-  }
-  let result = salary * MEDICAL_INSURANCE_RATE;
 
-  return result;
+// calculate medical insurance
+function calculateMI(salary) {
+  if (salary >= MAX_SALARY) {
+   return result = MAX_SALARY * MEDICAL_INSURANCE_RATE;
+  }
+  else (salary < MAX_SALARY)
+    return  result = salary * MEDICAL_INSURANCE_RATE;
 }
 
 // calculate unemployment insurance
@@ -218,7 +227,7 @@ function calculateIBT(salary, socialInsurance, medicalInsurance, unemploymentIns
 //calculate tax income
 function calculateTI(incomeBeforeTax,dependencyDeduction){
   let taxIncome = incomeBeforeTax - PERSONAL_DEDUCTION - dependencyDeduction;
-  return taxIncome < 0 ? 0 : taxIncome;
+  return taxIncome <= 0 ? 0 : taxIncome;
 }
 
 // calculate PIT
@@ -328,5 +337,6 @@ function calculateNS(salary, socialInsurance, medicalInsurance, unemploymentInsu
 
 
 module.exports = {
-  calculateSI, calculateMI, calculateUI
+  calculateSI, calculateMI, calculateUI, calculateIBT, calculateDD, calculateTI, calculatePIT1, calculatePIT2, calculatePIT3
+  ,calculatePIT4, calculatePIT5, calculatePIT6, calculatePIT7, calculatePIT, calculateNS
 }
