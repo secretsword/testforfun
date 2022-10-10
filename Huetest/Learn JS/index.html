@@ -12,16 +12,16 @@
         </h1>
         <div class="container">
             <div class="salary">
-                <label>
+                <label class="bold-text">
                     Salary:
                 </label>
-                <input id="salary" type="number">
+                <input id="salary" class="input-text" type="number">
             </div>
             <div class="region">
-                <label>
+                <label class="bold-text">
                     Region:
                 </label>
-                <select name="region" id="region">
+                <select name="region" id="region" class="input-text">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -29,21 +29,41 @@
                 </select>
             </div>
             <div class="dependant">
-                <label>
+                <label class="bold-text">
                     Number of dependant:
                 </label>
-                <input id="numberOfDependant" type="number">
+                <input id="numberOfDependant" class="input-text" type="number">
             </div>
             
-            <button onclick="calculateNetSalary(), removeClass()" class="btn">
+            <button onclick="calculateNetSalary()" class="btn">
                 GROSS TO NET
             </button>
         </div> 
-        <p id="result" class="display hide">
-            Your Net Salary is
-        </p>
-        <p id="netSalary">
-        </p>
+        <div class="calculation-result">
+            <p id="net-salary" class="hide bold-text red-text"> 
+            </p>
+            <p id="gross-salary" class="hide bold-text grey-background">
+            </p>
+            <p id="social-insurance" class="hide normal-text">
+            </p>
+            <p id="health-insurance" class="hide normal-text">
+            </p>
+            <p id="unemployment-insurance" class="hide normal-text">
+            </p>
+            <p id="salary-before-tax" class="hide bold-text grey-background">
+            </p>
+            <p id="personal-deduction" class="hide normal-text">
+            </p>
+            <p id="dependant-deduction" class="hide normal-text">
+            </p>
+            <p id="taxable-salary" class="hide bold-text grey-background">
+            </p>
+            <p id="pit" class="hide normal-text">
+            </p>
+            <p id="net-result" class="hide bold-text red-text grey-background">
+            </p>
+        </div>
+        
         <script src="./main.js"></script>
     </body>
 </html>
