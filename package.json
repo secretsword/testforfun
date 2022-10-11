@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "khanh\r Khanh2\r Jun\r Nga - Editted\r Hue",
   "main": "index.js",
-  "scripts" : { 
-    "test" : "jest"
- },
+  "scripts": {
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/secretsword/testforfun.git"
